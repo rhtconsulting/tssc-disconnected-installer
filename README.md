@@ -9,11 +9,11 @@ The typical work flow is to:
 3. Expand the archive
 4. Run the included install script.
 
-= Pre-reqs
+# Pre-reqs
 
 These instructions assume that the package is created on one machine and installed from another. There different pre-reqs for the two machines.
 
-== The Machine Used to Create the Package
+## The Machine Used to Create the Package
 
 1. Ansible
 2. A git client
@@ -34,22 +34,22 @@ git@github.com:rhtconsulting/tssc-python-package.git
 ssh://gitea@gitea.tssc.rht-set.com:2022/tssc-references/tssc-reference-app-quarkus-rest-json.git
 ssh://gitea@gitea.tssc.rht-set.com:2022/tssc-references/tssc-reference-app-quarkus-rest-json-config.git
 
-== The Machine Used to Install the Package
+## The Machine Used to Install the Package
 1. Network connectivity to the git server, container registry, and artifact repository in the disconnected environment.
 2. Ansible, git, maven and skopeo client binaries.
 3. A gitea API token with permission to create repositories OR pre-existing manually created repositories for each upstream git repository.
 4. Any credentials required to push images to the container registry.
 5. Credentials and maven configuration for deploying application dependencies to the maven repository OR administrative access to manually upload the dependencies.
 
-= Installer Phases
+# Installer Phases
 
-== Create Package
+## Create Package
 
 1. Clone Git Repos
 2. Download Application Dependencies
 3. Download Container Images
 
-== Install Package
+## Install Package
 
 1. Create Gitea Repos
  - curl -X POST "https://giteaserver/api/v1/user/repos?access_token=TOKEN" -H "accept: application/json" -H "content-type: application/json" -d "{\"name\":\"repsitory_name\", \"description\": \"Sample description\", .... }"
