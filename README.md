@@ -16,12 +16,12 @@ These instructions assume that the package is created on one machine and install
 ## The Machine Used to Create the Package
 
 1. Ansible
-2. A git client
+2. git 2.25.4 or later (may work with earlier versions)
 3. Network connectivity to the upstream repositories (or mirrors).
 4. Git credentials configured for passwordless cloning of the upstream repositories.
-5. Maven
+5. maven 5.7 or later (may work with earlier versions)
 6. Network connectivity to maven central OR network connectivity and maven configuration for an enterprise repository with the required application dependencies.
-7. skopeo
+7. skopeo 1.1.1 or later (may work with earlier versions)
 8. Network connectivity to quay.io. Alternatively, network connectivity and any required credentials for an enterprise container image repository with the required container images.
 9. Enough disk space to hold the unpackaged repositories, images and dependencies, and also the created package.
 
