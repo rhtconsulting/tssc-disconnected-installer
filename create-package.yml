@@ -32,3 +32,8 @@
         dest: ./package/git-repos/tssc-reference-app-quarkus-rest-json-config
         version: master
         remote: upstream
+
+    - name: Download TSSC Quarkus Reference App Maven Dependencies
+      shell:
+        cmd: mvn -Dmaven.repo.local=../../maven-repository dependency:go-offline
+        chdir: ./package/git-repos/tssc-reference-app-quarkus-rest-json
