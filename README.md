@@ -15,22 +15,21 @@ These instructions assume that the package is created on one machine and install
 
 ## The Machine Used to Create the Package
 
-1. Ansible
-2. git 2.25.4 or later (may work with earlier versions)
+1. Ansible 2.9.12 or later (earlier versions may work)
+2. git 2.25.4 or later (earlier versions may work)
 3. Network connectivity to the upstream repositories (or mirrors).
 4. Git credentials configured for passwordless cloning of the upstream repositories.
-5. maven 5.7 or later (may work with earlier versions)
+5. maven 5.7 or later (earlier versions may work)
 6. Network connectivity to maven central OR network connectivity and maven configuration for an enterprise repository with the required application dependencies.
-7. skopeo 1.1.1 or later (may work with earlier versions)
+7. skopeo 1.1.1 or later (earlier versions may work)
 8. Network connectivity to quay.io. Alternatively, network connectivity and any required credentials for an enterprise container image repository with the required container images.
 9. Enough disk space to hold the unpackaged repositories, images and dependencies, and also the created package.
 
 Open Internet access satisfies all network connectivity requirements.
 
 The upstream repositories are:
-ssh://gitea@gitea.tssc.rht-set.com:2022/tssc-demo/new-java-app.git
-git@github.com:rhtconsulting/tssc-jenkins-library.git
 git@github.com:rhtconsulting/tssc-python-package.git
+git@github.com:rhtconsulting/tssc-jenkins-library.git
 ssh://gitea@gitea.tssc.rht-set.com:2022/tssc-references/tssc-reference-app-quarkus-rest-json.git
 ssh://gitea@gitea.tssc.rht-set.com:2022/tssc-references/tssc-reference-app-quarkus-rest-json-config.git
 

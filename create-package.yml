@@ -1,0 +1,34 @@
+---
+
+- name: Create TSSC Install Package
+  gather_facts: false
+  hosts: 127.0.0.1
+  tasks:
+
+    - name: Download TSSC Python Package
+      git:
+        repo: 'https://github.com/rhtconsulting/tssc-python-package.git'
+        dest: ./package/git-repos/tssc-python-package
+        version: master
+        remote: upstream
+
+    - name: Download TSSC Jenkins Library
+      git:
+        repo: 'https://github.com/rhtconsulting/tssc-jenkins-library.git'
+        dest: ./package/git-repos/tssc-jenkins-library
+        version: master
+        remote: upstream
+
+    - name: Download TSSC Quarkus Reference App
+      git:
+        repo: 'http://gitea.tssc.rht-set.com/tssc-references/tssc-reference-app-quarkus-rest-json.git'
+        dest: ./package/git-repos/tssc-reference-app-quarkus-rest-json
+        version: master
+        remote: upstream
+
+    - name: Download TSSC Quarkus Reference App Configuration
+      git:
+        repo: 'http://gitea.tssc.rht-set.com/tssc-references/tssc-reference-app-quarkus-rest-json-config.git'
+        dest: ./package/git-repos/tssc-reference-app-quarkus-rest-json-config
+        version: master
+        remote: upstream
