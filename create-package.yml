@@ -3,6 +3,9 @@
 - name: Create TSSC Install Package
   gather_facts: false
   hosts: 127.0.0.1
+  vars:
+    package_dir: "{{ playbook_dir }}/package"
+    image_dir: "{{ package_dir }}/container_images"
   tasks:
 
     - name: Download TSSC Python Package
@@ -37,3 +40,33 @@
       shell:
         cmd: mvn -Dmaven.repo.local=../../maven-repository dependency:go-offline
         chdir: ./package/git-repos/tssc-reference-app-quarkus-rest-json
+
+    - name: Create Download Directory for Container Images
+      file:
+        path: "{{ image_dir }}"
+        state: directory
+        mode: '0755'
+
+    - name: Download Jenkins Worker Container Images - Base
+      shell:
+        cmd: skopeo copy docker://quay.io/tssc/tssc-ci-agent-jenkins:v0.4 oci://{{ image_dir }}/tssc-ci-agent-jenkins:v0.4
+
+    - name: Download Jenkins Worker Container Images - Maven
+      shell:
+        cmd: skopeo copy docker://quay.io/tssc/tssc-tool-maven:v0.3 oci://{{ image_dir }}/tssc-tool-maven:v0.3
+
+    - name: Download Jenkins Worker Container Images - Buildah
+      shell:
+        cmd: skopeo copy docker://quay.io/tssc/tssc-tool-buildah:latest oci://{{ image_dir }}/tssc-tool-buildah:latest
+
+    - name: Download Jenkins Worker Container Images - ArgoCD
+      shell:
+        cmd: skopeo copy docker://quay.io/tssc/tssc-tool-argocd:v0.2 oci://{{ image_dir }}/tssc-tool-argocd:v0.2
+
+    - name: Download Jenkins Worker Container Images - Skopeo
+      shell:
+        cmd: skopeo copy docker://quay.io/tssc/tssc-tool-skopeo:v0.2 oci://{{ image_dir }}/tssc-tool-skopeo:v0.2
+
+    - name: Download Jenkins Worker Container Images - Sonar
+      shell:
+        cmd: skopeo copy docker://quay.io/tssc/tssc-tool-sonar:v0.2 oci://{{ image_dir }}/tssc-tool-sonar:v0.2
