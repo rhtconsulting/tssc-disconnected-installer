@@ -2,12 +2,19 @@
 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
                     https://maven.apache.org/xsd/settings-1.0.0.xsd">
+  <servers>
+    <server>
+      <id>nexus</id>
+      <username>{% maven.repo.username %}</username>
+      <password>{% maven.repo.password %}</password>
+    </server>
+  </servers>
   <mirrors>
     <mirror>
       <!--This sends everything else to /public -->
       <id>nexus</id>
       <mirrorOf>*</mirrorOf>
-      <url>https://nexus-devsecops.apps.cluster-22a5.22a5.example.opentlc.com/repository/maven-releases/</url>
+      <url>{% maven.repo.password %}</url>
     </mirror>
   </mirrors>
   <profiles>
