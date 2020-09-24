@@ -7,7 +7,7 @@ The typical work flow is to:
 1. Outside, the disconnected environment, use the installer to create an installer package while connected to the internet. This downloads all required binaries and creates an archive.
 2. Manually copy the archive into the disconnected environment.
 3. Expand the archive
-4. Run the included install script.
+4. Run the setup scripts.
 
 # Pre-reqs
 
@@ -36,9 +36,12 @@ ssh://gitea@gitea.tssc.rht-set.com:2022/tssc-references/tssc-reference-app-quark
 ## The Machine Used to Install the Package
 1. Network connectivity to the git server, container registry, and artifact repository in the disconnected environment.
 2. Ansible, git, maven and skopeo client binaries.
-3. A gitea API token with permission to create repositories OR pre-existing manually created repositories for each upstream git repository.
-4. Any credentials required to push images to the container registry.
-5. Credentials and maven configuration for deploying application dependencies to the maven repository OR administrative access to manually upload the dependencies.
+
+## Other Prereqs
+1. A git server in the disconnected environment with pre-existing repositories created (e.g. organization and repos created in Gitea).
+2. A container registry in the disconnected environment (e.g. organization in Quay)
+2. An artifact repository in the disconnected environment (e.g. maven-release repository in Nexus)
+2. Credentials with permissions to push to all of the above
 
 # Installer Phases
 
