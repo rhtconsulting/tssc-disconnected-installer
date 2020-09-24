@@ -5,7 +5,7 @@
   hosts: 127.0.0.1
   vars:
     package_dir: "{{ playbook_dir }}/package"
-    image_dir: "{{ package_dir }}/container_images"
+    image_dir: "{{ package_dir }}/container-images"
   tasks:
 
     - name: Download TSSC Python Package
