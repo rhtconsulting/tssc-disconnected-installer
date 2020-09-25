@@ -7,3 +7,4 @@ skopeo copy oci://${IMAGE_DIR}/tssc-tool-buildah:${TAG} docker://$REGISTRY/tssc/
 skopeo copy oci://${IMAGE_DIR}/tssc-tool-argocd:${TAG} docker://$REGISTRY/tssc/tssc-tool-argocd:${TAG}
 skopeo copy oci://${IMAGE_DIR}/tssc-tool-skopeo:${TAG} docker://$REGISTRY/tssc/tssc-tool-skopeo:${TAG}
 skopeo copy oci://${IMAGE_DIR}/tssc-tool-sonar:${TAG} docker://$REGISTRY/tssc/tssc-tool-sonar:${TAG}
+skopeo copy oci://${IMAGE_DIR}/tssc-tool-config-lint:${TAG} docker://$REGISTRY/tssc/tssc-tool-config-lint:${TAG}

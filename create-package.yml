@@ -70,3 +70,7 @@
     - name: Download Jenkins Worker Container Images - Sonar
       shell:
         cmd: skopeo copy docker://quay.io/tssc/tssc-tool-sonar:v0.10.0 oci://{{ image_dir }}/tssc-tool-sonar:v0.10.0
+
+    - name: Download Jenkins Worker Container Images - Lint
+      shell:
+        cmd: skopeo copy docker://quay.io/tssc/tssc-tool-config-lint:v0.10.0 oci://{{ image_dir }}/tssc-tool-config-lint:v0.10.0
