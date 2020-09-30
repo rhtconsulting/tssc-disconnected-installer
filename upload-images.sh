@@ -8,3 +8,4 @@ skopeo copy oci://${IMAGE_DIR}/tssc-tool-argocd:${TAG} docker://$REGISTRY/tssc/t
 skopeo copy oci://${IMAGE_DIR}/tssc-tool-skopeo:${TAG} docker://$REGISTRY/tssc/tssc-tool-skopeo:${TAG}
 skopeo copy oci://${IMAGE_DIR}/tssc-tool-sonar:${TAG} docker://$REGISTRY/tssc/tssc-tool-sonar:${TAG}
 skopeo copy oci://${IMAGE_DIR}/tssc-tool-config-lint:${TAG} docker://$REGISTRY/tssc/tssc-tool-config-lint:${TAG}
+skopeo copy oci://${IMAGE_DIR}/tssc-tool-openscap:${TAG} docker://$REGISTRY/tssc/tssc-tool-openscap:${TAG}
