@@ -1,0 +1,43 @@
+---
+
+- name: Create TSSC Install Package
+  gather_facts: false
+  hosts: 127.0.0.1
+  vars:
+    package_dir: "{{ playbook_dir }}/package"
+    image_dir: "{{ package_dir }}/container-images"
+    image_tag: v0.12.0
+
+  tasks:
+
+    - name: Upload Jenkins Worker Container Images - Jenkins Agent
+      shell:
+        cmd: skopeo copy oci://{{ image_dir }}/tssc-ci-agent-jenkins:{{ image_tag }} docker://{{ target_registry }}/tssc/tssc-ci-agent-jenkins:{{ image_tag }}
+
+    - name: Upload Jenkins Worker Container Images - Jenkins Agent
+      shell:
+        cmd: skopeo copy oci://{{ image_dir }}/tssc-tool-maven:{{ image_tag }} docker://{{ target_registry }}/tssc/tssc-tool-maven:{{ image_tag }}
+
+    - name: Upload Jenkins Worker Container Images - Jenkins Agent
+      shell:
+        cmd: skopeo copy oci://{{ image_dir }}/tssc-tool-buildah:{{ image_tag }} docker://{{ target_registry }}/tssc/tssc-tool-buildah:{{ image_tag }}
+
+    - name: Upload Jenkins Worker Container Images - Jenkins Agent
+      shell:
+        cmd: skopeo copy oci://{{ image_dir }}/tssc-tool-argocd:{{ image_tag }} docker://{{ target_registry }}/tssc/tssc-tool-argocd:{{ image_tag }}
+
+    - name: Upload Jenkins Worker Container Images - Jenkins Agent
+      shell:
+        cmd: skopeo copy oci://{{ image_dir }}/tssc-tool-skopeo:{{ image_tag }} docker://{{ target_registry }}/tssc/tssc-tool-skopeo:{{ image_tag }}
+
+    - name: Upload Jenkins Worker Container Images - Jenkins Agent
+      shell:
+        cmd: skopeo copy oci://{{ image_dir }}/tssc-tool-sonar:{{ image_tag }} docker://{{ target_registry }}/tssc/tssc-tool-sonar:{{ image_tag }}
+
+    - name: Upload Jenkins Worker Container Images - Jenkins Agent
+      shell:
+        cmd: skopeo copy oci://{{ image_dir }}/tssc-tool-config-lint:{{ image_tag }} docker://{{ target_registry }}/tssc/tssc-tool-config-lint:{{ image_tag }}
+
+    - name: Upload Jenkins Worker Container Images - Jenkins Agent
+      shell:
+        cmd: skopeo copy oci://{{ image_dir }}/tssc-tool-openscap:{{ image_tag }} docker://{{ target_registry }}/tssc/tssc-tool-openscap:{{ image_tag }}
