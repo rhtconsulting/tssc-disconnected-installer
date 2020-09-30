@@ -6,20 +6,22 @@
   vars:
     package_dir: "{{ playbook_dir }}/package"
     image_dir: "{{ package_dir }}/container-images"
+    tssc_version: v0.12.0
+
   tasks:
 
     - name: Download TSSC Python Package
       git:
         repo: 'https://github.com/rhtconsulting/tssc-python-package.git'
         dest: ./package/git-repos/tssc-python-package
-        version: v0.10.0
+        version: {{ tssc_version }}
         remote: upstream
 
     - name: Download TSSC Jenkins Library
       git:
         repo: 'https://github.com/rhtconsulting/tssc-jenkins-library.git'
         dest: ./package/git-repos/tssc-jenkins-library
-        version: v0.10.0
+        version: {{ tssc_version }}
         remote: upstream
 
     - name: Download TSSC Quarkus Reference App
@@ -49,32 +51,32 @@
 
     - name: Download Jenkins Worker Container Images - Base
       shell:
-        cmd: skopeo copy docker://quay.io/tssc/tssc-ci-agent-jenkins:v0.10.0 oci://{{ image_dir }}/tssc-ci-agent-jenkins:v0.10.0
+        cmd: skopeo copy docker://quay.io/tssc/tssc-ci-agent-jenkins:{{ tssc_version }} oci://{{ image_dir }}/tssc-ci-agent-jenkins:{{ tssc_version }}
 
     - name: Download Jenkins Worker Container Images - Maven
       shell:
-        cmd: skopeo copy docker://quay.io/tssc/tssc-tool-maven:v0.10.0 oci://{{ image_dir }}/tssc-tool-maven:v0.10.0
+        cmd: skopeo copy docker://quay.io/tssc/tssc-tool-maven:{{ tssc_version }} oci://{{ image_dir }}/tssc-tool-maven:{{ tssc_version }}
 
     - name: Download Jenkins Worker Container Images - Buildah
       shell:
-        cmd: skopeo copy docker://quay.io/tssc/tssc-tool-buildah:v0.10.0 oci://{{ image_dir }}/tssc-tool-buildah:v0.10.0
+        cmd: skopeo copy docker://quay.io/tssc/tssc-tool-buildah:{{ tssc_version }} oci://{{ image_dir }}/tssc-tool-buildah:{{ tssc_version }}
 
     - name: Download Jenkins Worker Container Images - ArgoCD
       shell:
-        cmd: skopeo copy docker://quay.io/tssc/tssc-tool-argocd:v0.10.0 oci://{{ image_dir }}/tssc-tool-argocd:v0.10.0
+        cmd: skopeo copy docker://quay.io/tssc/tssc-tool-argocd:{{ tssc_version }} oci://{{ image_dir }}/tssc-tool-argocd:{{ tssc_version }}
 
     - name: Download Jenkins Worker Container Images - Skopeo
       shell:
-        cmd: skopeo copy docker://quay.io/tssc/tssc-tool-skopeo:v0.10.0 oci://{{ image_dir }}/tssc-tool-skopeo:v0.10.0
+        cmd: skopeo copy docker://quay.io/tssc/tssc-tool-skopeo:{{ tssc_version }} oci://{{ image_dir }}/tssc-tool-skopeo:{{ tssc_version }}
 
     - name: Download Jenkins Worker Container Images - Sonar
       shell:
-        cmd: skopeo copy docker://quay.io/tssc/tssc-tool-sonar:v0.10.0 oci://{{ image_dir }}/tssc-tool-sonar:v0.10.0
+        cmd: skopeo copy docker://quay.io/tssc/tssc-tool-sonar:{{ tssc_version }} oci://{{ image_dir }}/tssc-tool-sonar:{{ tssc_version }}
 
     - name: Download Jenkins Worker Container Images - Config Lint
       shell:
-        cmd: skopeo copy docker://quay.io/tssc/tssc-tool-config-lint:v0.10.0 oci://{{ image_dir }}/tssc-tool-config-lint:v0.10.0
+        cmd: skopeo copy docker://quay.io/tssc/tssc-tool-config-lint:{{ tssc_version }} oci://{{ image_dir }}/tssc-tool-config-lint:{{ tssc_version }}
 
     - name: Download Jenkins Worker Container Images - OpenSCAP
       shell:
-        cmd: skopeo copy docker://quay.io/tssc/tssc-tool-config-lint:v0.10.0 oci://{{ image_dir }}/tssc-tool-openscap:v0.10.0
+        cmd: skopeo copy docker://quay.io/tssc/tssc-tool-config-lint:{{ tssc_version }} oci://{{ image_dir }}/tssc-tool-openscap:{{ tssc_version }}
