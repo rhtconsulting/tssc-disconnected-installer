@@ -36,7 +36,7 @@
       git:
         repo: 'http://gitea.tssc.rht-set.com/tssc-references/reference-quarkus-mvn-jenkins-config.git'
         dest: ./package/git-repos/tssc-reference-app-quarkus-rest-json-config
-        version: "{{ reference_app_version }}"
+        version: main
         remote: upstream
 
     - name: Download TSSC Quarkus Reference App Maven Dependencies
