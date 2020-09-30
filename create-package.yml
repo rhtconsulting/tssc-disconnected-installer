@@ -15,28 +15,28 @@
       git:
         repo: 'https://github.com/rhtconsulting/tssc-python-package.git'
         dest: ./package/git-repos/tssc-python-package
-        version: {{ tssc_version }}
+        version: "{{ tssc_version }}"
         remote: upstream
 
     - name: Download TSSC Jenkins Library
       git:
         repo: 'https://github.com/rhtconsulting/tssc-jenkins-library.git'
         dest: ./package/git-repos/tssc-jenkins-library
-        version: {{ tssc_version }}
+        version: "{{ tssc_version }}"
         remote: upstream
 
     - name: Download TSSC Quarkus Reference App
       git:
         repo: 'http://gitea.tssc.rht-set.com/tssc-references/reference-quarkus-mvn-jenkins.git'
         dest: ./package/git-repos/tssc-reference-app-quarkus-rest-json
-        version: {{ reference_app_version }}
+        version: "{{ reference_app_version }}"
         remote: upstream
 
     - name: Download TSSC Quarkus Reference App Configuration
       git:
         repo: 'http://gitea.tssc.rht-set.com/tssc-references/reference-quarkus-mvn-jenkins-config.git'
         dest: ./package/git-repos/tssc-reference-app-quarkus-rest-json-config
-        version: {{ reference_app_version }}
+        version: "{{ reference_app_version }}"
         remote: upstream
 
     - name: Download TSSC Quarkus Reference App Maven Dependencies
