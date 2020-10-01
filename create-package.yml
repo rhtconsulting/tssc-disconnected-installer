@@ -85,4 +85,4 @@
 
     - name: Download Jenkins Worker Container Images - OpenSCAP
       shell:
-        cmd: skopeo copy docker://quay.io/tssc/tssc-tool-config-lint:{{ tssc_version }} oci://{{ image_dir }}/tssc-tool-openscap:{{ tssc_version }}
+        cmd: skopeo copy docker://quay.io/tssc/tssc-tool-openscap:{{ tssc_version }} oci://{{ image_dir }}/tssc-tool-openscap:{{ tssc_version }}
