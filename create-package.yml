@@ -86,3 +86,7 @@
     - name: Download Jenkins Worker Container Images - OpenSCAP
       shell:
         cmd: skopeo copy docker://quay.io/tssc/tssc-tool-openscap:{{ tssc_version }} oci://{{ image_dir }}/tssc-tool-openscap:{{ tssc_version }}
+
+    - name: Download UBI8 Java Base Image
+      shell:
+        cmd: skopeo copy docker://registry.redhat.io/ubi8/openjdk-8:1.3 oci://{{ image_dir }}/ubi8/openjdk-8:1.3
