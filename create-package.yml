@@ -46,7 +46,7 @@
 
     - name: Download TSSC Quarkus Reference App Maven Integration Test Dependencies
       shell:
-        cmd: mvn -Dmaven.repo.local=../../maven-repository -Pintegration-test test || exit 0
+        cmd: mvn -Dmaven.repo.local=../../maven-repository -Pintegration-test clean test || exit 0
         chdir: ./package/git-repos/tssc-reference-app-quarkus-rest-json
 
     - name: Create Download Directory for Container Images
